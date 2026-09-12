@@ -1,0 +1,6 @@
+# 把本插件插入 DSH 的插件组合。DSH 的 profile 补丁层（例如
+# ~/.dsh/profiles/web/cordis.patch.yml）可以直接引用本文件，
+# 也可以照抄下面这段 insert 条目。
+- insert:
+    - id: dsh-balance-chip
+      name: 'dsh-balance-chip'

@@ -1,0 +1,83 @@
+{
+  "name": "dsh-balance-chip",
+  "version": "0.1.0",
+  "description": "DSH Web GUI 会话页头部余额芯片：经宿主侧 Remote 以你的 API Key 查询 DeepSeek 账户余额，点击跳转充值，悬停可见赠送/充值拆分。",
+  "license": "MIT",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": {
+      "default": "./lib/index.js"
+    },
+    "./client": {
+      "default": "./lib/client.js"
+    },
+    "./balance": {
+      "default": "./lib/balance.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "LICENSE",
+    "scripts/inline-balance.mjs",
+    "lib",
+    "test",
+    "cordis.patch.yml",
+    "README.md",
+    "README.en.md",
+    "AGENTS.md",
+    "ARCHITECTURE.md"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build:bundle": "node scripts/inline-balance.mjs",
+    "check:bundle": "node scripts/inline-balance.mjs --check",
+    "check": "node --check lib/index.js && node --check lib/client.js && node --check lib/balance.js && npm run check:bundle",
+    "test": "node --test \"test/*.test.js\"",
+    "verify": "npm run check && npm test",
+    "prepublishOnly": "npm run verify"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "inject": [
+        "@deepseek-ai/dsh-client-connection"
+      ],
+      "platform": "web"
+    }
+  },
+  "keywords": [
+    "deepseek-harness",
+    "dsh-plugin",
+    "dsh",
+    "deepseek",
+    "balance",
+    "credit",
+    "account"
+  ],
+  "author": "lijunyu726",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lijunyu726/dsh-balance-chip.git"
+  },
+  "homepage": "https://github.com/lijunyu726/dsh-balance-chip#readme",
+  "bugs": {
+    "url": "https://github.com/lijunyu726/dsh-balance-chip/issues"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": ">=4.0.0",
+    "@deepseek-ai/dsh-typert-protocol": ">=0.1.5-rc.2"
+  },
+  "peerDependenciesMeta": {
+    "@deepseek-ai/cordis": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-typert-protocol": {
+      "optional": true
+    }
+  }
+}

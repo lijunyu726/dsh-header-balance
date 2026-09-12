@@ -1,0 +1,8 @@
+node_modules/
+*.log
+.DS_Store
+*.tgz
+
+# 开发期软链（scripts/link-host-deps.mjs 生成），指向本机已安装的 DSH，
+# 绝不能提交。
+node_modules/@deepseek-ai/
