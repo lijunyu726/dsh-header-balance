@@ -24,10 +24,12 @@ API Key 与网络请求**全部在宿主侧完成**，key 永不进入浏览器�
 ## 安装
 
 ```sh
-npm install dsh-header-balance
+dsh plugin --profile web add dsh-header-balance
 ```
 
-在 DSH 的 profile 补丁层（例如 `~/.dsh/profiles/web/cordis.patch.yml`）里加一条：
+重启 DSH 后，会话页头部就会出现余额芯片。
+
+`dsh plugin add` 会读取本包 `package.json` 里的 `dsh.bundle.patch`，**自动**把插件插进配置树，不需要手工编辑 `cordis.patch.yml`。下面是它替你做的事，仅供排查时参考：
 
 ```yaml
 - insert:
@@ -35,7 +37,11 @@ npm install dsh-header-balance
       name: 'dsh-header-balance'
 ```
 
-重启 DSH 后，会话页头部就会出现余额芯片。
+也可以用 npm 直接装（例如自建 profile 或离线分发），但要自己补上面那条 insert：
+
+```sh
+npm install dsh-header-balance
+```
 
 插件读取的凭据与官方 `llm-deepseek` 适配器**同一个引用**（默认 `DEEPSEEK_API_KEY`），因此只要模型能用，余额就能查到，无需单独配置。
 

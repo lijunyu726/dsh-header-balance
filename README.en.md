@@ -24,10 +24,12 @@ The API key and the network request live entirely **on the host side** — the k
 ## Install
 
 ```sh
-npm install dsh-header-balance
+dsh plugin --profile web add dsh-header-balance
 ```
 
-Then add one entry to your DSH profile patch layer (for example `~/.dsh/profiles/web/cordis.patch.yml`):
+Restart DSH and the chip appears in the conversation header.
+
+`dsh plugin add` reads the `dsh.bundle.patch` field in this package's `package.json` and inserts the plugin into the profile tree for you. **No manual edit of `cordis.patch.yml` is needed.** The entry it writes is shown below, for troubleshooting only:
 
 ```yaml
 - insert:
@@ -35,7 +37,11 @@ Then add one entry to your DSH profile patch layer (for example `~/.dsh/profiles
       name: 'dsh-header-balance'
 ```
 
-Restart DSH and the chip appears in the conversation header.
+Installing through npm directly also works (for a hand-rolled profile, or offline distribution), but then you do add that entry yourself:
+
+```sh
+npm install dsh-header-balance
+```
 
 The plugin resolves the same credential reference as the official `llm-deepseek` adapter (default `DEEPSEEK_API_KEY`), so if your model works, the balance lookup works — no separate configuration.
 
