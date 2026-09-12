@@ -1,7 +1,7 @@
 {
   "name": "dsh-header-balance",
   "version": "0.1.0",
-  "description": "DSH Web GUI 会话页头部余额芯片：经宿主侧 Remote 以你的 API Key 查询 DeepSeek 账户余额，点击跳转充值，悬停可见赠送/充值拆分。",
+  "description": "会话页头部的余额芯片。点击跳转充值页，悬停看赠送与充值的拆分。每 60 秒与窗口获得焦点时刷新；未配置密钥、密钥失效、余额不足、限流、超时、断网、响应异常各自给出提示。密钥只在宿主侧读取。",
   "license": "MIT",
   "type": "module",
   "main": "lib/index.js",
