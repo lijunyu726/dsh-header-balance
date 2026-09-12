@@ -4,9 +4,9 @@
 
 ## 仓库定位
 
-`dsh-balance-chip` 是一个**双半边 DSH 插件**（宿主 Node + 浏览器），发布到 npm，通过 DSH 的 profile 补丁层加载。它不是独立应用——脱离 DSH 宿主无法运行。
+`dsh-header-balance` 是一个**双半边 DSH 插件**（宿主 Node + 浏览器），发布到 npm，通过 DSH 的 profile 补丁层加载。它不是独立应用——脱离 DSH 宿主无法运行。
 
-- 独立公开 Git 仓库（`lijunyu726/dsh-balance-chip`），不隶属于 DSH 大仓。
+- 独立公开 Git 仓库（`lijunyu726/dsh-header-balance`），不隶属于 DSH 大仓。
 - 上游权威是 DSH 的 **Typert Remote 协议**与**客户端槽位契约**。改这两处前必须先在已安装的 DSH 里核实实现，不要照抄本仓库的假设。
 
 ## 目录规范
@@ -47,7 +47,7 @@
 6. **bundle 必须自包含。** 宿主解析器（`dsh-client-modules/lib/client.js:296-310`）只认平台 seed 字面量、已物化的包、已注册的 factory，**后两者都以包 id 为键**。因此：
 
    - 允许 `require('react')`（及 `react/jsx-runtime`、`react-dom`、`@deepseek-ai/cordis`、`dsh-client-*` 等 seed 字面量）；
-   - **绝不允许 `require('dsh-balance-chip/...')`**——自身子路径在浏览器里必然抛 `missed the module table`，而 `node --check` 对此完全无感。
+   - **绝不允许 `require('dsh-header-balance/...')`**——自身子路径在浏览器里必然抛 `missed the module table`，而 `node --check` 对此完全无感。
 
    展示逻辑靠**构建期内联**进入 bundle（`npm run build:bundle`），真源仍是可单测的 `lib/balance.js`。
 

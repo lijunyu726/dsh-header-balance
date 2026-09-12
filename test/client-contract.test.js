@@ -233,7 +233,7 @@ test('组件渲染出余额文本、刷新按钮，并注入样式表', () => {
   assert.ok(texts.includes('↻'), '未渲染出刷新按钮')
   assert.ok(tree.props.title !== undefined, '应带悬停说明')
   assert.equal(harness.dom.headChildren.length, 1, '样式表应注入一次')
-  assert.match(harness.dom.headChildren[0].textContent, /dsh-balance-chip/)
+  assert.match(harness.dom.headChildren[0].textContent, /dsh-header-balance/)
 })
 
 test('点击刷新按钮会 stopPropagation，避免误触充值跳转', () => {

@@ -270,5 +270,5 @@ test('apply() 能构造服务（插件入口不抛）', { skip }, () => {
 test('inject 为空：可选服务不得进入启动闸门', { skip }, () => {
   // 声明了却拿不到的服务会让插件永久 pending，进而导致宿主启动失败。
   assert.deepEqual(mod.inject, [])
-  assert.equal(mod.name, 'dsh-balance-chip')
+  assert.equal(mod.name, 'dsh-header-balance')
 })

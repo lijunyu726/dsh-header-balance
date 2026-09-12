@@ -1,4 +1,4 @@
-# dsh-balance-chip
+# dsh-header-balance
 
 [English](./README.en.md) | 中文
 
@@ -24,15 +24,15 @@ API Key 与网络请求**全部在宿主侧完成**，key 永不进入浏览器�
 ## 安装
 
 ```sh
-npm install dsh-balance-chip
+npm install dsh-header-balance
 ```
 
 在 DSH 的 profile 补丁层（例如 `~/.dsh/profiles/web/cordis.patch.yml`）里加一条：
 
 ```yaml
 - insert:
-    - id: dsh-balance-chip
-      name: 'dsh-balance-chip'
+    - id: dsh-header-balance
+      name: 'dsh-header-balance'
 ```
 
 重启 DSH 后，会话页头部就会出现余额芯片。

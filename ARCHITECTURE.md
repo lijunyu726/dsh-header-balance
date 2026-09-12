@@ -8,7 +8,7 @@ DSH 的界面由**槽位（slot）**拼装，宿主侧能力由 **Typert Remote*
 浏览器（Web GUI）
 ├── @deepseek-ai/dsh-client-ui-conversation
 │   └── 渲染 conversation.session.header.utilities（kind: list, scope: session）
-│       └── dsh-balance-chip 的 BalanceChip   ← 本插件注册在这里
+│       └── dsh-header-balance 的 BalanceChip   ← 本插件注册在这里
 │           │
 │           │  connection.rpc.call('/api', 'accountBalance/balance', { args: {} })
 │           ▼
@@ -19,7 +19,7 @@ DSH 的界面由**槽位（slot）**拼装，宿主侧能力由 **Typert Remote*
 宿主（Node 进程）
 ├── @deepseek-ai/dsh-api-gateway
 │   └── 通过 **SRC 回退路径** 发现本插件的 Remote
-│       └── dsh-balance-chip 的 AccountBalanceService.balance()
+│       └── dsh-header-balance 的 AccountBalanceService.balance()
 │           ├── ctx.get('settings')    → llm-deepseek 命名空间（软读取）
 │           ├── ctx.get('credentials') → resolve('DEEPSEEK_API_KEY')（软读取）
 │           └── GET api.deepseek.com/user/balance
@@ -136,7 +136,7 @@ makeRequire(edges) {
 }
 ```
 
-`loadCache` 与 `factories` **都以包 id 为键**，因此 `require('dsh-balance-chip/balance')` 这类自身子路径永远命中不了。
+`loadCache` 与 `factories` **都以包 id 为键**，因此 `require('dsh-header-balance/balance')` 这类自身子路径永远命中不了。
 
 姊妹插件 `dsh-price-phase` 0.1.0 正是这么写的并带病发布，而两道防线当时都失效：`node --check` 只看语法；契约测试为了让那条 require 通过，在测试里注入了 Node 版解析当后门。
 

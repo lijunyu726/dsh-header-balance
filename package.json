@@ -1,5 +1,5 @@
 {
-  "name": "dsh-balance-chip",
+  "name": "dsh-header-balance",
   "version": "0.1.0",
   "description": "DSH Web GUI 会话页头部余额芯片：经宿主侧 Remote 以你的 API Key 查询 DeepSeek 账户余额，点击跳转充值，悬停可见赠送/充值拆分。",
   "license": "MIT",
@@ -62,11 +62,11 @@
   "author": "lijunyu726",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lijunyu726/dsh-balance-chip.git"
+    "url": "git+https://github.com/lijunyu726/dsh-header-balance.git"
   },
-  "homepage": "https://github.com/lijunyu726/dsh-balance-chip#readme",
+  "homepage": "https://github.com/lijunyu726/dsh-header-balance#readme",
   "bugs": {
-    "url": "https://github.com/lijunyu726/dsh-balance-chip/issues"
+    "url": "https://github.com/lijunyu726/dsh-header-balance/issues"
   },
   "peerDependencies": {
     "@deepseek-ai/cordis": ">=4.0.0",

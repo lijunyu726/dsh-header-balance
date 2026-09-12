@@ -2,5 +2,5 @@
 # ~/.dsh/profiles/web/cordis.patch.yml）可以直接引用本文件，
 # 也可以照抄下面这段 insert 条目。
 - insert:
-    - id: dsh-balance-chip
-      name: 'dsh-balance-chip'
+    - id: dsh-header-balance
+      name: 'dsh-header-balance'

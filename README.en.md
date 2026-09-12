@@ -1,4 +1,4 @@
-# dsh-balance-chip
+# dsh-header-balance
 
 English | [中文](./README.md)
 
@@ -24,15 +24,15 @@ The API key and the network request live entirely **on the host side** — the k
 ## Install
 
 ```sh
-npm install dsh-balance-chip
+npm install dsh-header-balance
 ```
 
 Then add one entry to your DSH profile patch layer (for example `~/.dsh/profiles/web/cordis.patch.yml`):
 
 ```yaml
 - insert:
-    - id: dsh-balance-chip
-      name: 'dsh-balance-chip'
+    - id: dsh-header-balance
+      name: 'dsh-header-balance'
 ```
 
 Restart DSH and the chip appears in the conversation header.
