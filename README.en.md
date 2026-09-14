@@ -6,6 +6,8 @@ English | [中文](./README.md)
 
 The API key and the network request live entirely **on the host side** — the key never reaches browser code.
 
+[![Balance chip demo: the balance in the conversation header, clicking through to the recharge page](./docs/demo.gif)](./docs/demo.mp4)
+
 ---
 
 ## Features
